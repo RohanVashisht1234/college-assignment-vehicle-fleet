@@ -2,7 +2,13 @@ import graphene
 
 from models import Vehicle, Driver, Trip, Maintenance, FuelLog
 from models import VehicleStatus, DriverStatus
-from schema.types import VehicleType, DriverType, TripType, MaintenanceType, FuelLogType
+from schema.types import (
+    VehicleType,
+    DriverType,
+    TripType,
+    MaintenanceRecordType,
+    FuelLogType,
+)
 
 
 class Query(graphene.ObjectType):
@@ -22,8 +28,8 @@ class Query(graphene.ObjectType):
     active_trips = graphene.List(TripType)
 
     # --- Maintenance ---
-    maintenance_records = graphene.List(MaintenanceType)
-    upcoming_maintenance = graphene.List(MaintenanceType)
+    maintenance_records = graphene.List(MaintenanceRecordType)
+    upcoming_maintenance = graphene.List(MaintenanceRecordType)
 
     # --- Fuel Logs ---
     fuel_logs = graphene.List(FuelLogType)

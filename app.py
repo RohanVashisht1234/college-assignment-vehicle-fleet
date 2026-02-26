@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-from starlette_graphene3 import GraphQLApp, make_graphiql_handler
+from starlette_graphene import GraphQLApp
 
 from database import db_session, init_db
 from schema import schema
@@ -11,7 +11,6 @@ app = FastAPI(title="Fleet Tracking API")
 
 @app.middleware("http")
 async def db_session_middleware(request, call_next):
-    """Open a DB session for each request, close it after."""
     try:
         response = await call_next(request)
     finally:
@@ -27,8 +26,7 @@ async def index():
     )
 
 
-# Mount the GraphQL endpoint with built-in GraphiQL
-app.mount("/graphql", GraphQLApp(schema=schema, on_get=make_graphiql_handler()))
+app.mount("/graphql", GraphQLApp(schema=schema))
 
 
 if __name__ == "__main__":

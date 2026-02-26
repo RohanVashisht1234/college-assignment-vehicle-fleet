@@ -2,9 +2,6 @@ version = 1
 revision = 3
 requires-python = ">=3.14"
 
-[options]
-prerelease-mode = "allow"
-
 [[package]]
 name = "aiodataloader"
 version = "0.4.3"
@@ -281,14 +278,27 @@ sdist = { url = "https://files.pythonhosted.org/packages/ce/af/20290b55d469e873c
 
 [[package]]
 name = "starlette"
-version = "1.0.0rc1"
+version = "0.52.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/06/47/11581c2f488a65ab8a32a1843e989203c7b359c39bd06d31ff8bc4ddc6f3/starlette-1.0.0rc1.tar.gz", hash = "sha256:c369b9ac3af2e64b3a5301d7059f4222cfa884ad5e91320336109789cfe0fe23", size = 2653401, upload-time = "2026-02-23T22:12:32.257Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c4/68/79977123bb7be889ad680d79a40f339082c1978b5cfcf62c2d8d196873ac/starlette-0.52.1.tar.gz", hash = "sha256:834edd1b0a23167694292e94f597773bc3f89f362be6effee198165a35d62933", size = 2653702, upload-time = "2026-01-18T13:34:11.062Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/37/63/843f3f4aa2cbdadb6becddceb81d034cc417fbecd2fb0e105092a8c82a8a/starlette-1.0.0rc1-py3-none-any.whl", hash = "sha256:fca38b17fc7705dcd781cfcafa2702b19e2ebf971384169152a1d53d6073ef39", size = 72224, upload-time = "2026-02-23T22:12:30.573Z" },
+    { url = "https://files.pythonhosted.org/packages/81/0d/13d1d239a25cbfb19e740db83143e95c772a1fe10202dda4b76792b114dd/starlette-0.52.1-py3-none-any.whl", hash = "sha256:0029d43eb3d273bc4f83a08720b4912ea4b071087a3b48db01b7c839f7954d74", size = 74272, upload-time = "2026-01-18T13:34:09.188Z" },
+]
+
+[[package]]
+name = "starlette-graphene"
+version = "0.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "graphene" },
+    { name = "starlette" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e9/79/8fa5e9ba2bfce5563234504d1ccaf96c747503ff04bbfe18c17be094927b/starlette-graphene-0.4.0.tar.gz", hash = "sha256:8a72d2783416aaf461da39bf1e2d95eb45a90d8997095cd62bfb54a53bf82b2b", size = 10241, upload-time = "2024-10-18T15:27:46.155Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4e/f6/461cf36ecf8cfbe00f557155e0b08a40b50c65f277e369e62a6bc789a6a7/starlette_graphene-0.4.0-py3-none-any.whl", hash = "sha256:dc0f026548a8bae562c25934266c3409fda8e06a292516ab5933215c07ccb13e", size = 11228, upload-time = "2024-10-18T15:27:44.653Z" },
 ]
 
 [[package]]
@@ -348,6 +358,7 @@ dependencies = [
     { name = "graphene" },
     { name = "graphene-sqlalchemy" },
     { name = "sqlalchemy" },
+    { name = "starlette-graphene" },
     { name = "starlette-graphene3" },
     { name = "uvicorn" },
 ]
@@ -358,6 +369,7 @@ requires-dist = [
     { name = "graphene", specifier = ">=2.1.9" },
     { name = "graphene-sqlalchemy", specifier = ">=3.0.0rc2" },
     { name = "sqlalchemy", specifier = ">=1.4.54" },
+    { name = "starlette-graphene", specifier = ">=0.4.0" },
     { name = "starlette-graphene3", specifier = ">=0.6.0" },
     { name = "uvicorn", specifier = ">=0.41.0" },
 ]

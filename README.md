@@ -30,7 +30,7 @@ uv init
 ### 2. Install all dependencies (single command)
 
 ```bash
-uv add fastapi graphene sqlalchemy starlette-graphene3 uvicorn "graphene-sqlalchemy>=3.0.0rc2" --prerelease=allow
+uv add fastapi sqlalchemy uvicorn starlette-graphene "graphene-sqlalchemy>=3.0.0rc2" --prerelease=allow
 ```
 
 ### 3. Copy all source files into the fleet/ directory

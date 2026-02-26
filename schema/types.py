@@ -23,10 +23,16 @@ class TripType(SQLAlchemyObjectType):
         sqla_session = db_session
 
 
-class MaintenanceType(SQLAlchemyObjectType):
+class MaintenanceRecordType(SQLAlchemyObjectType):
     class Meta:
         model = Maintenance
         sqla_session = db_session
+
+    # Override enum field as plain string to avoid graphene-sqlalchemy v3 enum conflict
+    maintenance_type = graphene.String()
+
+    def resolve_maintenance_type(root, info):
+        return root.maintenance_type.value if root.maintenance_type else None
 
 
 class FuelLogType(SQLAlchemyObjectType):
@@ -36,7 +42,6 @@ class FuelLogType(SQLAlchemyObjectType):
 
 
 # --- Input types for mutations ---
-
 
 class StartTripInput(graphene.InputObjectType):
     vehicle_id = graphene.Int(required=True)
@@ -68,7 +73,7 @@ class AddDriverInput(graphene.InputObjectType):
 class ScheduleMaintenanceInput(graphene.InputObjectType):
     vehicle_id = graphene.Int(required=True)
     maintenance_type = graphene.String(required=True)
-    scheduled_date = graphene.String(required=True)  # ISO date string
+    scheduled_date = graphene.String(required=True)
     notes = graphene.String()
 
 

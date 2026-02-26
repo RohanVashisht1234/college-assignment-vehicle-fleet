@@ -8,7 +8,7 @@ from schema.types import (
     VehicleType,
     DriverType,
     TripType,
-    MaintenanceType,
+    MaintenanceRecordType,
     FuelLogType,
     StartTripInput,
     EndTripInput,
@@ -137,7 +137,7 @@ class ScheduleMaintenance(graphene.Mutation):
     class Arguments:
         input = ScheduleMaintenanceInput(required=True)
 
-    maintenance = graphene.Field(MaintenanceType)
+    maintenance = graphene.Field(MaintenanceRecordType)
     ok = graphene.Boolean()
     error = graphene.String()
 
@@ -172,7 +172,7 @@ class CompleteMaintenance(graphene.Mutation):
         cost = graphene.Float(required=True)
         notes = graphene.String()
 
-    maintenance = graphene.Field(MaintenanceType)
+    maintenance = graphene.Field(MaintenanceRecordType)
     ok = graphene.Boolean()
     error = graphene.String()
 
