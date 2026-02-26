@@ -43,6 +43,7 @@ class FuelLogType(SQLAlchemyObjectType):
 
 # --- Input types for mutations ---
 
+
 class StartTripInput(graphene.InputObjectType):
     vehicle_id = graphene.Int(required=True)
     driver_id = graphene.Int(required=True)
