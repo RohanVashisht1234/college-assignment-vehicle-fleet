@@ -10,4 +10,5 @@ Base.query = db_session.query_property()
 
 def init_db():
     from models import Vehicle, Driver, Trip, Maintenance, FuelLog  # noqa
+
     Base.metadata.create_all(bind=engine)
