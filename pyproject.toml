@@ -4,4 +4,11 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "fastapi>=0.133.1",
+    "graphene>=2.1.9",
+    "graphene-sqlalchemy>=3.0.0rc2",
+    "sqlalchemy>=1.4.54",
+    "starlette-graphene3>=0.6.0",
+    "uvicorn>=0.41.0",
+]
