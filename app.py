@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-from starlette_graphene import GraphQLApp
+from starlette_graphene3 import GraphQLApp, make_playground_handler
 
 from database import db_session, init_db
 from schema import schema
@@ -26,7 +26,12 @@ async def index():
     )
 
 
-app.mount("/graphql", GraphQLApp(schema=schema))
+graphql_app = GraphQLApp(
+    schema=schema,
+    on_get=make_playground_handler()
+)
+app.add_route("/graphql", graphql_app)
+app.add_websocket_route("/graphql", graphql_app)
 
 
 if __name__ == "__main__":

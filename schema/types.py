@@ -10,11 +10,21 @@ class VehicleType(SQLAlchemyObjectType):
         model = Vehicle
         sqla_session = db_session
 
+    status = graphene.String()
+
+    def resolve_status(root, info):
+        return root.status.value if root.status else None
+
 
 class DriverType(SQLAlchemyObjectType):
     class Meta:
         model = Driver
         sqla_session = db_session
+
+    status = graphene.String()
+
+    def resolve_status(root, info):
+        return root.status.value if root.status else None
 
 
 class TripType(SQLAlchemyObjectType):
